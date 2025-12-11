@@ -5,8 +5,6 @@ import { useState, useEffect } from "react";
 
 export default function Shoppingpage() {
     const [productInfo, setProductInfo] = useState([]);
-    const [cartItems, setCartItems] = useState([]);
-
 
     // Fetch product data from multiple URLs on component mount
     useEffect (() => {
@@ -48,6 +46,20 @@ export default function Shoppingpage() {
             setCountProduct(Number(event.target.value));
         }
 
+        //add to cart(local storage)
+        function saveToLocalStorage() {
+            const item = [
+                {
+                    id: id,
+                    name: name,
+                    price: price,
+                    quantity: countProduct
+                }
+            ];
+
+            localStorage.setItem(`cartItem${id}`, JSON.stringify(item));
+        }
+
         return (
             <div className="product-card" key={id}>
                 <div id="img-container">
@@ -58,7 +70,7 @@ export default function Shoppingpage() {
                     <p className="product-price">${price}</p>
                 </div>
                 <div id="button-quantity-container">
-                    <button className="add-to-cart-button">Add to Cart</button>
+                    <button className="add-to-cart-button" onClick={saveToLocalStorage}>Add to Cart</button>
                     <div id="quantity-btns">
                         <button className="quantity-btn" id="decrease-btn" onClick={handleDecrement}>-</button>
                         <input type="number" name="" className="quantity-input" id={`${name}-quantity`} value={countProduct} onChange={handleChange} />
@@ -74,12 +86,12 @@ export default function Shoppingpage() {
     const listProducts = productInfo.map((product) => 
         <Product 
             key={product.id}
+            id={product.id}
             name={product.title}
             imageUrl={product.image}
             price={product.price}
         />
     )
-
 
     return (
         <>
