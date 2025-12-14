@@ -25,7 +25,7 @@
 
 #border-line{
     height: 0.1rem;
-    width: 80%;
+    width: 90%;
     margin-left: auto;
     margin-right: auto;
     background-color: black;
@@ -34,9 +34,10 @@
 
 #order-item{
     display: grid;
-    grid-template-columns: 6fr 1.5fr 1fr 1fr;
+    grid-template-columns: 6fr 2fr 1fr 1fr;
     margin-left: 0.4rem;
     margin-right: 0.4rem;
+    place-items: center;
 }
 
 #id-text{
@@ -46,4 +47,19 @@
 #quantity-buttons{
     display: flex;
     flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 0.2rem;
+}
+
+
+.btn-quantity{
+    height: 2rem;
+}
+
+#total-container{
+    margin: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: end;
 }
