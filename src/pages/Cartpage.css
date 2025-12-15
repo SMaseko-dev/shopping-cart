@@ -23,6 +23,12 @@
     text-align: center;
 }
 
+
+#item-name{
+    font-size: 0.8rem;
+    margin-left: 1rem;
+}
+
 #border-line{
     height: 0.1rem;
     width: 90%;

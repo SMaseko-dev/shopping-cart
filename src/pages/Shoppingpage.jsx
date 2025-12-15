@@ -57,7 +57,29 @@ export default function Shoppingpage() {
                 }
             ];
 
-            localStorage.setItem(`cartItem${id}`, JSON.stringify(item));
+            const existingCart = localStorage.getItem('cartItems');
+            let items = existingCart ? JSON.parse(existingCart) : [];
+            const existingItemIndex = items.findIndex(i => i.id === id);
+
+            if (!Array.isArray(items)) {
+                items = [];
+            }
+
+            if (countProduct === 0) {
+                alert("Please select a quantity before adding to cart.");
+                return;
+            }
+
+            if (existingItemIndex > -1){
+                items[existingItemIndex].quantity += countProduct
+            }
+            
+            else {
+                items.push(...item);
+            }
+
+            localStorage.setItem(`cartItems`, JSON.stringify(items));
+            
         }
 
         return (
