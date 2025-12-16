@@ -3,8 +3,6 @@ import Navbar from "../components/Navbar.jsx";
 import { useState, useEffect } from "react";
 
 export default function Cartpage() {
-    const [ itemCount, setItemCount ] = useState(0);
-
     const handleIncrement = (id) => {
         const updatedCart = cartItems.map((item) =>
             item.id === id
@@ -54,7 +52,7 @@ export default function Cartpage() {
                     <button type="button" className="btn-quantity" onClick={() => handleIncrement(item.id)}>+</button>
                 </div>
                 <div id="item-total-container">
-                    <p id="item-total-text">R{item.price * item.quantity}</p>
+                    <p id="item-total-text">R{Math.floor((item.price * item.quantity) * 100) / 100}</p>
                 </div>
                 <div id="remove-btn-container">
                     <button type="button" onClick={() => handleRemove(item.id)} >x</button>
@@ -75,6 +73,8 @@ export default function Cartpage() {
                     </div>
                 </div>
                 <div id="items-container">
+
+                    {cartItems.length === 0 && <p id="shopping-cart-empty-txt">Your shopping cart is empty</p>}
                     {displayList}
                     <div id="border-line"></div>
                     <div id="total-container">
@@ -85,7 +85,7 @@ export default function Cartpage() {
                                 )}</p>
                         <h3 id="total-text">Total:{cartItems.reduce(
                                     (sum, item) =>
-                                        sum + item.price * item.quantity,
+                                        Math.floor((sum + item.price * item.quantity) * 100) / 100,
                                     0
                                 )}</h3>
                     </div>

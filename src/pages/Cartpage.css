@@ -69,3 +69,7 @@
     flex-direction: column;
     align-items: end;
 }
+
+#shopping-cart-empty-txt{
+    text-align: center;
+}

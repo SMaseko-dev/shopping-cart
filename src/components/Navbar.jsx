@@ -1,8 +1,37 @@
 import "./Navbar.css";
 import { ShoppingBag, House, Shirt, ShoppingCart } from 'lucide-react';
 import { Link } from "react-router";
+import { useState, useEffect } from "react";
 
 export default function Navbar() {
+    const [cartQuantity, setCartQuantity] = useState(0)
+
+    useEffect(() => {
+        const updateCartQuantity = () => {
+            const storedCart =
+                JSON.parse(localStorage.getItem("cartItems")) || [];
+
+            const totalQuantity = storedCart.reduce(
+                (sum, item) => sum + item.quantity,
+                0
+            );
+
+            setCartQuantity(totalQuantity);
+        };
+        
+        
+        // initial load
+        updateCartQuantity();
+
+        // listen for cart changes (from other pages)
+        window.addEventListener("storage", updateCartQuantity);
+
+        return () => {
+            window.removeEventListener("storage", updateCartQuantity);
+        };
+    }, []);
+    
+
     return (
         <>
         <div id="navbar-container">
@@ -31,9 +60,8 @@ export default function Navbar() {
                     <li>
                         <Link to="/cartpage" className="nav-link">
                             <ShoppingCart color="black" size={15} id="navbar-logo" />
-                            <p id="cart-total">0</p>
                             <p id="navbar-title">
-                                CART
+                                CART {cartQuantity === 0 ? "": cartQuantity}
                             </p>
                         </Link>
                     </li>
