@@ -5,7 +5,7 @@ export default function Homepage() {
     return (
         <>
         <Navbar />
-        <div id="container">
+        <div id="container" data-testid="container">
             <div id="brand-container">
                 <div id="slogan-container">
                     <div id="text-container">

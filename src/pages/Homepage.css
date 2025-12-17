@@ -1,5 +1,4 @@
 #container{
-    border: 1px solid black;
     width: 100%;
     height: 39rem;
     display: flex;
@@ -8,6 +7,7 @@
     background-image: url("src/assets/np_Clothes racks in fashion store_bEXy74_free.jpg");
     background-size: cover;
     background-position: center;
+    font-family: sans-serif;
 }
 
 #brand-container{

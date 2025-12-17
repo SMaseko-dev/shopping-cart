@@ -52,7 +52,7 @@ export default function Cartpage() {
                     <button type="button" className="btn-quantity" onClick={() => handleIncrement(item.id)}>+</button>
                 </div>
                 <div id="item-total-container">
-                    <p id="item-total-text">R{Math.floor((item.price * item.quantity) * 100) / 100}</p>
+                    <p id="item-total-text">${Math.floor((item.price * item.quantity) * 100) / 100}</p>
                 </div>
                 <div id="remove-btn-container">
                     <button type="button" onClick={() => handleRemove(item.id)} >x</button>
@@ -83,7 +83,7 @@ export default function Cartpage() {
                                     (sum, item) => sum + item.quantity,
                                     0
                                 )}</p>
-                        <h3 id="total-text">Total:{cartItems.reduce(
+                        <h3 id="total-text">Total: ${cartItems.reduce(
                                     (sum, item) =>
                                         Math.floor((sum + item.price * item.quantity) * 100) / 100,
                                     0
@@ -99,7 +99,7 @@ export default function Cartpage() {
     return (
         <>
         <Navbar />
-        <div id="cartpage-container">
+        <div id="cartpage-container" data-testid="cartpage-container">
             <h2 id="cart-title">Your Shopping Cart</h2>
                 <Cart />
         </div>

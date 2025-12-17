@@ -118,7 +118,7 @@ export default function Shoppingpage() {
     return (
         <>
         <Navbar />
-        <div id="shopping-container">
+        <div id="shopping-container" data-testid="shopping-container">
             <h2 id="shopping-title">Shop Our Latest Collection</h2>
             <div id="products-container">
                 {listProducts <= 0 ? <p className="loading-text">Loading</p> : listProducts}

@@ -24,17 +24,19 @@ export default function Navbar() {
         updateCartQuantity();
 
         // listen for cart changes (from other pages)
-        window.addEventListener("storage", updateCartQuantity);
+        //window.addEventListener("storage", updateCartQuantity);
+        window.addEventListener("click", updateCartQuantity)
 
         return () => {
-            window.removeEventListener("storage", updateCartQuantity);
+            //window.removeEventListener("storage", updateCartQuantity);
+            window.removeEventListener("click", updateCartQuantity)
         };
     }, []);
     
 
     return (
         <>
-        <div id="navbar-container">
+        <div id="navbar-container" data-testid="navbar-container">
             <div id="logo-container">
                 <ShoppingBag  color="black" size={20} />
                 <p id="logo-title">SHOPSMART</p>
