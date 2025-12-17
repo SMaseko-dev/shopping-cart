@@ -11,7 +11,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-image: url("src/assets/jeff-sheldon-Lj1S1_KD61k-unsplash.jpg");
+    background-image: url("/jeff-sheldon-Lj1S1_KD61k-unsplash.jpg");
     background-size: cover;
     background-position: center;
     font-family: sans-serif;
