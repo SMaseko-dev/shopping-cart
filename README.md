@@ -23,7 +23,11 @@ Stores the cart in LocalStorage
 👩‍💻Technologies Used
 
 React(Functional components + hooks)
+
 Javascript
+
 CSS
+
 Icons by https://lucide.dev/
+
 LocalStorage API
