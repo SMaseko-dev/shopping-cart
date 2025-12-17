@@ -14,7 +14,7 @@ export default function Homepage() {
                     </div>
                 </div>
                 <div id="image-container">
-                    <img src="src\assets\undraw_window-shopping_9l2k.png" alt="Fashion" id="slogan-image"/>
+                    <img src="\undraw_window-shopping_9l2k.png" alt="Fashion" id="slogan-image"/>
                 </div>
             </div>
         </div>
