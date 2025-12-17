@@ -32,6 +32,8 @@ Icons by https://lucide.dev/
 
 LocalStorage API
 
+Product data from https://fakestoreapi.com/
+
 
 📷Screenshots
 
